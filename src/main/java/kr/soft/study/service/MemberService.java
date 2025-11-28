@@ -16,5 +16,4 @@ public class MemberService {
         String text = memberMapper.testConnection();
         log.info("test:{}",text);
     }
-
 }
