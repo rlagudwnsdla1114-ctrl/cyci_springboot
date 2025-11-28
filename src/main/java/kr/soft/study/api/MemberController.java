@@ -3,12 +3,18 @@ package kr.soft.study.api;
 import jakarta.servlet.http.HttpServletRequest;
 import kr.soft.study.dto.BoardDTO;
 import kr.soft.study.dto.MemberDTO;
+import kr.soft.study.mapper.MemberMapper;
+import kr.soft.study.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j // logger사용할 수 있음
 @RestController
 public class MemberController {
+
+    @Autowired
+    MemberService memberService;
 
     @GetMapping("/")
     public void print() {
@@ -61,5 +67,10 @@ public class MemberController {
     public MemberDTO join(@RequestBody MemberDTO memberDTO) {
 
         return memberDTO;
+    }
+
+    @GetMapping("/test")
+    public void test() {
+        memberService.testConnection();
     }
 }
